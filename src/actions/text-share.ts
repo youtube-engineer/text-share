@@ -4,18 +4,18 @@ import { redirect } from 'next/navigation';
 
 export async function createSharedText(body: { text: string }) {
     const prisma = new PrismaClient()
+    let response
     try {
-        const response = await prisma.sharedText.create({
+        response = await prisma.sharedText.create({
             data: {
                 text: body.text,
             }
         })
 
-        redirect(`/${response.id}`)
-
     } catch (error) {
         console.log(error)
     }
+    redirect(`/${response?.id}`)
 }
 
 export async function findSharedText(uniqueId: string) {
@@ -26,7 +26,7 @@ export async function findSharedText(uniqueId: string) {
                 id: uniqueId,
             },
         });
-
+        console.log(result?.text, "result")
         return result?.text
     } catch (error) {
         console.log(error)
