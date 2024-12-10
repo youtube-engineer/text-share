@@ -1,9 +1,13 @@
 import { findSharedText } from "../../actions/text-share"
-export default async function ShareText({ params }: { params: { id: string } }) {
+
+type Props = {
+    params: Promise<{
+        id: string
+    }>;
+}
+export default async function ShareText({ params }: Props) {
     const { id } = await params
     const sharedText = await findSharedText(id)
-    console.log(sharedText);
-
 
     return (
         <pre className="p-16">

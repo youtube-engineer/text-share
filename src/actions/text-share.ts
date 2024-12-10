@@ -1,9 +1,8 @@
 'use server';
-import { PrismaClient } from '@prisma/client'
 import { redirect } from 'next/navigation';
+import prisma from '@/lib/db';
 
 export async function createSharedText(body: { text: string }) {
-    const prisma = new PrismaClient()
     let response
     try {
         response = await prisma.sharedText.create({
@@ -19,14 +18,12 @@ export async function createSharedText(body: { text: string }) {
 }
 
 export async function findSharedText(uniqueId: string) {
-    const prisma = new PrismaClient()
     try {
         const result = await prisma.sharedText.findUnique({
             where: {
                 id: uniqueId,
             },
         });
-        console.log(result?.text, "result")
         return result?.text
     } catch (error) {
         console.log(error)
