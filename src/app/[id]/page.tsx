@@ -1,5 +1,7 @@
 import { findSharedText } from "../../actions/text-share"
 
+export const runtime = "edge";
+
 type Props = {
     params: Promise<{
         id: string
