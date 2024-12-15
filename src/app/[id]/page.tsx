@@ -1,6 +1,6 @@
 'use client'
 // import { findSharedText } from "../../actions/text-share"
-// export const runtime = "edge";
+export const runtime = "edge";
 
 type Props = {
     params: Promise<{
