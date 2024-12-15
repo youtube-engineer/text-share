@@ -19,7 +19,7 @@ export const runtime = "edge";
 
 
 
-export const page = () => {
+export default function Test() {
     return (
         <div>page</div>
     )
