@@ -1,4 +1,3 @@
-'use client'
 // import { findSharedText } from "../../actions/text-share"
 export const runtime = "edge";
 
