@@ -1,5 +1,5 @@
-import { findSharedText } from "../../actions/text-share"
-// export const runtime = "edge";
+// import { findSharedText } from "../../actions/text-share"
+// // export const runtime = "edge";
 
 type Props = {
     params: Promise<{
@@ -8,11 +8,11 @@ type Props = {
 }
 export default async function ShareText({ params }: Props) {
     const { id } = await params
-    const sharedText = await findSharedText(id)
+    // const sharedText = await findSharedText(id)
 
     return (
         <pre className="p-16">
-            {sharedText}
+            {id}
         </pre>
     );
 }
