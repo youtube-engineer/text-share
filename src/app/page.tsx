@@ -20,6 +20,6 @@ export default function Home() {
       <button onClick={() => createSharedText(setData)} className="bg-blue-500 text-white px-6 py-2 rounded-lg shadow-md hover:bg-blue-600 transition-all duration-200">
         シェアする
       </button>
-    </div >
+    </div>
   );
 }
