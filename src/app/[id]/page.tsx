@@ -1,3 +1,4 @@
+export const runtime = "edge";
 import { findSharedText } from "../../actions/text-share"
 
 type Props = {
