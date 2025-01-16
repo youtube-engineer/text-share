@@ -27,6 +27,6 @@ export async function findSharedText(uniqueId: string) {
         });
         return result?.text
     } catch (error) {
-        console.log(error)
+        console.log(error, "テキストを共有する際にエラーが発生しました")
     }
 }
