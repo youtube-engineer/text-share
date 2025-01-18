@@ -3,7 +3,9 @@
 import { redirect } from 'next/navigation';
 import prisma from '@/lib/db';
 
+
 export async function createSharedText(body: { text: string }) {
+    "use server"
     console.log("createSharedText実行")
     let response
     try {
