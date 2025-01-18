@@ -9,17 +9,16 @@ type Props = {
 export default async function ShareText({ params }: Props) {
     const { id } = await params
 
-    async function getSharedText() {
-        try {
-            const sharedText = await findSharedText(id);
+    let sharedText = null
+    try {
+        sharedText = await findSharedText(id);
 
-            return sharedText
-        } catch (error) {
-            // エラーが発生した場合の処理
-            console.error('Error fetching shared text:', error);
-        }
+    } catch (error) {
+        // エラーが発生した場合の処理
+        console.error('Error fetching shared text:', error);
     }
-    const sharedText = getSharedText()
+
+
 
 
     return (

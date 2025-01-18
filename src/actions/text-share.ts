@@ -19,8 +19,7 @@ export async function createSharedText(body: { text: string }) {
         console.log(error)
     }
     console.log("redirect直前")
-    // redirect(`/${response?.id}`)
-    return { message: "200" }
+    redirect(`/${response?.id}`)
 }
 
 export async function findSharedText(uniqueId: string) {
