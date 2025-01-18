@@ -4,6 +4,7 @@ import { redirect } from 'next/navigation';
 import prisma from '@/lib/db';
 
 export async function createSharedText(body: { text: string }) {
+    console.log("createSharedText実行")
     let response
     try {
         response = await prisma.sharedText.create({
@@ -15,6 +16,7 @@ export async function createSharedText(body: { text: string }) {
     } catch (error) {
         console.log(error)
     }
+    console.log("redirect直前")
     redirect(`/${response?.id}`)
 }
 
