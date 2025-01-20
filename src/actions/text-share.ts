@@ -4,31 +4,31 @@ import { redirect } from 'next/navigation';
 import prisma from '@/lib/db';
 
 
-export async function createSharedText() {
-    console.log("createSharedText実行")
-    return { text: "createSharedText実行 in actionsフォルダ" }
-}
-
-
-
-
-// export async function createSharedText(body: { text: string }) {
-//     "use server"
+// export async function createSharedText() {
 //     console.log("createSharedText実行")
-//     let response
-//     try {
-//         response = await prisma.sharedText.create({
-//             data: {
-//                 text: body.text,
-//             }
-//         })
-
-//     } catch (error) {
-//         console.log(error)
-//     }
-//     console.log("redirect直前")
-//     redirect(`/${response?.id}`)
+//     return { text: "createSharedText実行 in actionsフォルダ" }
 // }
+
+
+
+
+export async function createSharedText(body: { text: string }) {
+    "use server"
+    console.log("createSharedText実行")
+    let response
+    try {
+        response = await prisma.sharedText.create({
+            data: {
+                text: body.text,
+            }
+        })
+
+    } catch (error) {
+        console.log(error)
+    }
+    console.log("redirect直前")
+    redirect(`/${response?.id}`)
+}
 
 export async function findSharedText(uniqueId: string) {
     try {
