@@ -8,7 +8,7 @@ type Props = {
 };
 export default async function ShareText({ params }: Props) {
 	const { id } = await params;
-	let sharedText = null;
+	let sharedText : string | undefined;
 
 	try {
 		sharedText = await findSharedText(id);
