@@ -17,6 +17,7 @@
     "uuid": "^11.0.3"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.9.4",
     "@cloudflare/next-on-pages": "^1.13.7",
     "@types/node": "^20",
     "@types/react": "^18",

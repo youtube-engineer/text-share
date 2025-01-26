@@ -1,31 +1,21 @@
 export const runtime = "edge";
-import { findSharedText } from "../../actions/text-share"
+import { findSharedText } from "../../actions/text-share";
 
 type Props = {
-    params: Promise<{
-        id: string
-    }>;
-}
+	params: Promise<{
+		id: string;
+	}>;
+};
 export default async function ShareText({ params }: Props) {
-    const { id } = await params
+	const { id } = await params;
+	let sharedText = null;
 
-    let sharedText = null
-    try {
-        sharedText = await findSharedText(id);
+	try {
+		sharedText = await findSharedText(id);
+	} catch (error) {
+		// エラーが発生した場合の処理
+		console.error("Error fetching shared text:", error);
+	}
 
-    } catch (error) {
-        // エラーが発生した場合の処理
-        console.error('Error fetching shared text:', error);
-    }
-
-
-
-
-    return (
-        <pre className="p-16">
-            {sharedText}
-        </pre>
-    );
+	return <pre className="p-16">{sharedText}</pre>;
 }
-
-

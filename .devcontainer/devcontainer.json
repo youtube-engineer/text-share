@@ -15,6 +15,14 @@
     // 今回はnodejsのパッケージをインストール
     "postCreateCommand": "npm install",
     // ホスト側のファイルをコンテナにマウントする
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "biomejs.biome",
+                "Prisma.prisma"
+            ]
+        }
+    },
     "mounts": [
         "source=/Users/yokotatomo/.ssh,target=/home/vscode/.ssh,type=bind,consistency=cached"
     ]
