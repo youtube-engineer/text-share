@@ -5,5 +5,17 @@ services:
     volumes:
       - ..:/workspace:cached
   
-  # postgresql
-  
+  # postgresqlコンテナの設定
+  postgres:
+    image: postgres:16.2
+    container_name: postgres_text-share
+    restart: on-failure:5
+    ports: 
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+    volumes:
+      - db-store:/var/lib/postgresql/data
+volumes:
+    db-store:  
