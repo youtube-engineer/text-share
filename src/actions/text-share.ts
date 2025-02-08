@@ -14,12 +14,14 @@ export async function createSharedText(body: { text: string }) {
 			},
 		});
 	} catch (error) {
-		console.log(error);
+		console.log(error, `テキスト(${body.text})を保存する際にエラーが発生しました`);
 	}
 	redirect(`/${response?.id}`);
 }
 
 export async function findSharedText(uniqueId: string) {
+	// "use server";
+
 	try {
 		const result = await prisma.sharedText.findUnique({
 			where: {

@@ -17,5 +17,5 @@ export default async function ShareText({ params }: Props) {
 		console.error("Error fetching shared text:", error);
 	}
 
-	return <pre className="p-16">{sharedText}</pre>;
+	return <pre className="p-[180px]">{sharedText}</pre>;
 }

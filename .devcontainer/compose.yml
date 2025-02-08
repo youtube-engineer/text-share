@@ -9,12 +9,14 @@ services:
   postgres:
     image: postgres:16.2
     container_name: postgres_text-share
+    hostname: postgres.database.local
     restart: on-failure:5
     ports: 
       - "5432:5432"
     environment:
-      POSTGRES_USER: "postgres"
-      POSTGRES_PASSWORD: "postgres"
+      POSTGRES_USER: user 
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: mydatabase
     volumes:
       - db-store:/var/lib/postgresql/data
 volumes:

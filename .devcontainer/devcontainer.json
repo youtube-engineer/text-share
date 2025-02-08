@@ -19,7 +19,8 @@
         "vscode": {
             "extensions": [
                 "biomejs.biome",
-                "Prisma.prisma"
+                "Prisma.prisma",
+                "dotenv.dotenv-vscode"
             ]
         }
     },
