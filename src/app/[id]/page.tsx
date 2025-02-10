@@ -1,9 +1,21 @@
+export const runtime = "edge";
+import { findSharedText } from "../../actions/text-share";
 
-export default function ShareText({ params }: { params: { id: string } }) {
-    console.log(params.id);
-    return (
-        <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-            {params.id}
-        </div>
-    );
+type Props = {
+	params: Promise<{
+		id: string;
+	}>;
+};
+export default async function ShareText({ params }: Props) {
+	const { id } = await params;
+	let sharedText : string | undefined;
+
+	try {
+		sharedText = await findSharedText(id);
+	} catch (error) {
+		// エラーが発生した場合の処理
+		console.error("Error fetching shared text:", error);
+	}
+
+	return <pre className="p-[180px]">{sharedText}</pre>;
 }
