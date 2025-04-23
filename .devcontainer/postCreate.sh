@@ -18,4 +18,7 @@ WORKSPACE_DIRECTORY="/workspace"
   nvm install 
   nvm use
   node -v
+
+  git config --global user.email "chatgptinjapan@gmail.com"
+  git config --global user.name "youtube-engineer"
 )
