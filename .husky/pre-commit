@@ -1,2 +1,1 @@
-npx biome lint ./src
-
+lint-staged
