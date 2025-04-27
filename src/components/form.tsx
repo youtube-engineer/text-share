@@ -9,7 +9,7 @@ export default function Form() {
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-4">
-      <h1 className="text-4xl font-bold mb-6 text-blue-600">Text Share</h1>
+      <h1 className="text-4xl font-bold mb-6 text-blue-600">TextShare</h1>
       <textarea
         value={text}
         onChange={(e) => setText(e.target.value)}
