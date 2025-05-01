@@ -1,25 +1,30 @@
 "use server";
 
 import prisma from "@/lib/db";
-import { redirect } from "next/navigation";
 
-export async function createSharedText(body: { text: string }) {
-  "use server";
-  let response: { id: string; text: string; createdAt: Date } | undefined;
-
+export async function createSharedText(formData: FormData) {
+  const inputText = formData.get("text");
   try {
-    response = await prisma.sharedText.create({
+    const response = await prisma.sharedText.create({
       data: {
-        text: body.text,
+        text: inputText as string,
       },
     });
+
+    if (!response) {
+      throw new Error("テキストの保存に失敗しました");
+    }
+
+    return response.id;
   } catch (error) {
-    console.log(
-      error,
-      `テキスト(${body.text})を保存する際にエラーが発生しました`,
-    );
+    if (error instanceof Error) {
+      console.error(
+        error,
+        `テキスト(${inputText})を保存する際にエラーが発生しました`,
+      );
+      throw new Error("テキストの保存に失敗しました");
+    }
   }
-  redirect(`/${response?.id}`);
 }
 
 export async function findSharedText(uniqueId: string) {
@@ -29,9 +34,10 @@ export async function findSharedText(uniqueId: string) {
         id: uniqueId,
       },
     });
+    if (!result) throw new Error("テキストが見つかりません");
 
-    return result?.text;
+    return result.text;
   } catch (error) {
-    console.log(error, "テキストを共有する際にエラーが発生しました");
+    console.error(error, "テキストを共有する際にエラーが発生しました");
   }
 }
