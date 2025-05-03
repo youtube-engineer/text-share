@@ -12,5 +12,5 @@ export default async function ShareText({ params }: Props) {
   const sharedText = await findSharedText(id);
   if (!sharedText) return notFound();
 
-  return <div className="p-[180px]">{sharedText}</div>;
+  return <pre className="p-[180px]">{sharedText}</pre>;
 }
