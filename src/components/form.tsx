@@ -4,7 +4,7 @@ import { notFound, redirect } from "next/navigation";
 import toast from "react-hot-toast";
 import { createSharedText } from "../actions/text-share";
 
-export default async function Form() {
+export default function Form() {
   const handleSubmit = async (formData: FormData) => {
     const responseId = await createSharedText(formData);
     if (!responseId) notFound();
