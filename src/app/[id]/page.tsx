@@ -10,7 +10,7 @@ type Props = {
 export default async function ShareText({ params }: Props) {
   const { id } = await params;
   const sharedText = await findSharedText(id);
-  if (!sharedText) return notFound();
+  if (!sharedText) notFound();
 
   return <pre className="p-[180px]">{sharedText}</pre>;
 }
