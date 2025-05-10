@@ -1,13 +1,17 @@
 "use client";
 
 import { notFound, redirect } from "next/navigation";
+import toast from "react-hot-toast";
 import { createSharedText } from "../actions/text-share";
 
-export default function Form() {
+export default async function Form() {
   const handleSubmit = async (formData: FormData) => {
     const responseId = await createSharedText(formData);
     if (!responseId) notFound();
     navigator.clipboard.writeText(`${location.href}${responseId}`);
+    toast.success("URLがクリップボードにコピーされました", {
+      duration: 5000,
+    });
     redirect(responseId);
   };
   return (
