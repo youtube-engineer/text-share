@@ -21,4 +21,7 @@ WORKSPACE_DIRECTORY="/workspace"
 
   git config --global user.email "chatgptinjapan@gmail.com"
   git config --global user.name "youtube-engineer"
+
+  npx prisma-accelerate-local postgresql://user:password@postgres.database.local:5432/mydatabase?schema=public -p 8000
+
 )
