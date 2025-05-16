@@ -19,7 +19,7 @@ export default function Form() {
       action={handleSubmit}
       className="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-4"
     >
-      <h1 className="text-4xl font-bold mb-6 text-blue-600">TextShare</h1>
+      <h1 className="text-4xl font-bold mb-6 text-blue-600">TextShareeeee</h1>
       <textarea
         name="text"
         placeholder="シェアしたいテキストを入力してください"
