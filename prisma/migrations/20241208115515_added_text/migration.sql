@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "SharedText" ALTER COLUMN "text" SET DATA TYPE TEXT;
