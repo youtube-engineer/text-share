@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Link from "next/link";
 import { Toaster } from "react-hot-toast";
 
 const geistSans = localFont({
@@ -29,6 +30,21 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <header className="bg-gray-800 shadow-lg p-4">
+          <nav className="container mx-auto flex justify-between items-center">
+            <Link href="/" className="text-2xl font-bold text-blue-400">
+              TechShare
+            </Link>
+            {/* <div>
+            <Link href="/login" className="text-gray-300 hover:text-blue-400 mr-4 transition duration-200">
+              ログイン
+            </Link>
+            <Link href="/signup" className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-200">
+              新規登録
+            </Link>
+          </div> */}
+          </nav>
+        </header>
         <Toaster />
         {children}
       </body>
